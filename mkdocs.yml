@@ -1,0 +1,28 @@
+site_name: FERSAT dokumentacija
+repo_url: https://github.com/UltimaLabs/fersat-docs/
+site_author: 'FERSAT projekt'
+copyright: 'Copyright &copy; 2020 FERSAT projekt'
+use_directory_urls: false
+strict: True
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue grey'
+    accent: 'light blue'  
+  language: 'hr'
+  custom_dir: 'theme'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true  
+
+nav:
+- Sadržaj: 'index.md'
+- Oprema, server: 'oprema_server.md'
+- Spajanje (OpenVPN, SSH): 'spajanje.md'
+- Rotator, scheduler/tracker: 'rotator_tracker.md'
+
