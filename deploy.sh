@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "Not yet implemented. Come back soon!"
+
+./build.sh && cd provisioning && ./fersat-deploy-docs.yml && cd ..

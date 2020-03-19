@@ -1,0 +1,8 @@
+---
+
+# docs sync
+sync_docs_src: ../site/
+sync_docs_dest: "/var/www/fersat/docs"
+sync_docs_dest_owner: nginx
+sync_docs_dest_group: nginx
+

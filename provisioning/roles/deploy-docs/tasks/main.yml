@@ -1,0 +1,19 @@
+---
+# tasks file for deploy-docs
+
+- name: Create docs folder
+  file: path={{ sync_docs_dest }} owner={{ sync_docs_dest_owner }} group={{ sync_docs_dest_group }} mode=0775 state=directory
+ 
+- name: Copy the generated docs
+  synchronize:
+   src: "{{ sync_docs_src }}"
+   dest: "{{ sync_docs_dest }}"
+   times: "yes"
+   delete: "yes"
+
+- name: Set owner and group for the copied files
+  file: >
+    owner={{ sync_docs_dest_owner }}
+    group={{ sync_docs_dest_group }}
+    path={{ sync_docs_dest }}
+    recurse=yes
