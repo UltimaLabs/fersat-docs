@@ -10,6 +10,7 @@
 ### Prerequisites
 
 * [Docker](https://www.docker.com/)
+* [Ansible](https://www.ansible.com/) for copying generated HTML to server
 
 ### Installing
 
@@ -32,7 +33,7 @@ Build the docs:
 ./build.sh
 ```
 
-Deploy generated HTML documentation to fersat1.fer.hr server:
+Copy generated HTML documentation to a server:
 ```
 ./deploy.sh
 ```

@@ -21,7 +21,7 @@ markdown_extensions:
       permalink: true  
 
 nav:
-- Sadržaj: 'index.md'
+- Uvod: 'index.md'
 - Oprema, server: 'oprema_server.md'
 - Spajanje (OpenVPN, SSH): 'spajanje.md'
 - Rotator, scheduler/tracker: 'rotator_tracker.md'

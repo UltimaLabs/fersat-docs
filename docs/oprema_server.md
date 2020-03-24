@@ -3,8 +3,8 @@
  - Primopredajnik: [ICOM IC-9700](https://www.icomamerica.com/en/products/amateur/hf/9700/default.aspx)
  - Antenski rotator: [Yaesu G-5500](https://www.yaesu.com/indexVS.cfm?cmd=DisplayProducts&ProdCatID=104&encProdID=79A89CEC477AA3B819EE02831F3FD5B8)
  - USB interface za rotator: [EA4TX ARS-USB](https://ea4tx.com/en/products-page/ars-usb/)
- - VHF antena: TBD
- - UHF antena: TBD
+ - VHF antena
+ - UHF antena
 
 # Server (fersat1)
  
