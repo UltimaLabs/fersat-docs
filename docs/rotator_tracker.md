@@ -67,7 +67,7 @@ Az: 328, El: 165
 
 ### Postavljanje azimuta/elevacije
 
-Unesite naredbu `s az el` ili `set az el`:
+Unesite naredbu `s <az> <el>` ili `set <az> <el>`:
 ```
 RotatorShell:> set 320 150
 Ok. Az: 319, El: 150

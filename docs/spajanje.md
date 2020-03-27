@@ -48,7 +48,7 @@
 ![Host Name unos](assets/img/04-putty-hostname.jpg)
 - Pod "Connection" / "Data" / "Auto-login username" unesite vaše korisničko ime <br><br>
 ![Username unos](assets/img/05-putty-username.jpg)
-- Pod "Connection" / "SSH" / "Auth" / "Private key file for authentication" kliknite na "Browse..." i odaberite prethodno generiranu PPK datoteku <br><br>
+- Pod "Connection" / "SSH" / "Auth" / "Private key file for authentication" kliknite na "Browse..." i odaberite prethodno generiranu PPK datoteku. <br><br>
 ![Odabir privatnog ključa](assets/img/06-putty-load-privkey.jpg)
 - Vratite se na "Session" i upišite npr. `fersat` pod "Saved Sessions"; kliknite na "Save". <br><br>
 ![Snimanje konekcije](assets/img/07-putty-save-session.jpg)
@@ -60,7 +60,8 @@
 
 - Ukoliko već nemate par SSH ključeva, generirajte ga:
     - `ssh-keygen -t rsa -b 2048`
-- Javni ključ (obično sadržaj datoteke `id_rsa.pub`) dostavite e-mailom administratoru/ici. Čekajte potvrdu da je javni ključ dodan na server.
+- Javni ključ (obično sadržaj datoteke `id_rsa.pub`) dostavite e-mailom administratoru/ici.
+- Čekajte potvrdu da je javni ključ dodan na server.
 - Spojite se na server:
     - `ssh korisnicko_ime@10.8.19.1`
 - Alternativno, možete ažurirati datoteku `~/.ssh/config` i dodati sljedeće linije:
