@@ -2,9 +2,48 @@
 
 ## RotatorShell
 
+!!! warning ""
+    Prije rada s `RotatorShell` aplikacijom isključite tracking aplikaciju `sancho` zbog konflikta kod pristupa rotatoru:<br>
+    `sudo systemctl stop sancho`
+
+
 ### Konfiguracija
 
-TODO
+Konfiguracija aplikacije `RotatorShell` nalazi se u datoteci `/opt/ultima/rotator-shell/application.yml`:
+```
+logging:
+  level:
+    root: ERROR
+
+shell:
+  out:
+    info: CYAN
+    success: GREEN
+    warning: YELLOW
+    error: RED
+
+rotatorshell:
+  rotctldHost: localhost # rotctld host
+  rotctldPort: 4533 # rotctld port
+  setPosWaitStep: 200 # milliseconds
+  setPosWaitNumSteps: 3
+  setPosWaitTimeout: 120 # seconds
+```
+
+!!! note ""
+    Datoteku možete ažurirati kroz `nano` editor: <br>
+    `sudo nano /opt/ultima/rotator-shell/application.yml`<br>
+    Za snimanje izmjena stisnite `CTRL-O`, a za izlaz iz editora `CTRL-X`.
+
+Bitna sekcija je `rotatorshell`:
+
+ - `rotctldHost` - hostname za komunikaciju s `rotctld` servisom
+ - `rotctldPort` - TCP port za komunikaciju s `rotctld` servisom
+ - `setPosWaitStep` - koliko često aplikacija provjerava je li rotator u mirovanju
+ - `setPosWaitNumSteps` - koliko puta rotator mora prijaviti istu poziciju prije no što proglasimo da je u mirovanju
+ - `setPosWaitTimeout` - timeout kod čekanja rotatora 
+
+`setPosWait` konfiguracija važna je zbog protokola za komunikaciju s rotatorom. Naime, nakon slanja naredbe za setiranje pozicije, rotator će odmah vratiti povratni status je li naredba prihvaćena ili ne. Kako bi utvrdili da je rotator stao, njegova pozicija se periodički provjerava kroz petlju, s korakom od `setPosWaitStep` ms. Nakon što rotator nekoliko (`setPosWaitNumSteps`) puta prijavi istu poziciju, proglasit ćemo da je stao. Zbog neprecizne ADC konverzije vratit će različite (az, el) vrijednosti za istu poziciju pa aplikacija može zaključiti da se rotator još uvijek kreće i tako je moguća (iako ne i vjerojatna) beskonačna petlja. Iz ovog razloga se petlja terminira nakon `setPosWaitTimeout` sekundi. `setPosWaitTimeout` ne smije biti manji od maksimalnog vremena koje je rotatoru potrebno za normalno izvršenje najvećeg pomaka, recimo 0 - 359 stupnjeva po azimutu.
 
 ### Osnovne naredbe
 
