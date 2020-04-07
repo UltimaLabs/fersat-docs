@@ -2,6 +2,10 @@
 
 ## RotatorShell
 
+### Konfiguracija
+
+TODO
+
 ### Osnovne naredbe
 
 Nakon spajanja na server pokrenite RotatorShell:
@@ -75,11 +79,62 @@ Ok. Az: 319, El: 150
 
 ### Generiranje CSV batch datoteke
 
-TODO
+Unesite naredbu `csv-out <azimut-od>  <azimut-do>  <elevacija-od>  <elevacija-do>  <pauza>  <afr|efr>  <naziv-datoteke>`, npr:
+```
+RotatorShell:> csv-out 0 359 0 5 3 afr csv-out.csv
+Written output file: csv-out.csv
+```
+
+Gornja naredba generirat će datoteku za pomak 0 - 359 stupnjeva po azimutu i 0 - 5 stupnjeva elevacije. Na svakoj poziciji će se rotator zadržati 3 sekunde. `afr` parametar znači prvo pomak po azimutu: 0, 1, 2, 3 ... 359, resetiranje azimuta na 0, pomak elevacije na 1, pa ponovno pomak po azimutu 0, 1, 2 ... 359. Naziv datoteke bit će `csv-out.csv`. Generiranu datoteku možete [preuzeti ovdje](assets/files/rotator_shell/csv-out.csv).
+
+Generiranje datoteke za pomak 0 - 359 stupnjeva po azimutu i 0 - 90 stupnjeva elevacije:
+```
+RotatorShell:> csv-out 0 359 0 90 3 afr csv-out.csv
+Written output file: csv-out.csv
+```
 
 ### Učitavanje CSV batch datoteke
 
-TODO
+Ulazna datoteka mora biti formatirana suklano [gornjem primjeru](assets/files/rotator_shell/csv-out.csv) generiranom pomoću naredbe `csv-out`:
+```
+azimuth,elevation,duration
+0,0,3
+1,0,3
+2,0,3
+3,0,3
+4,0,3
+5,0,3
+...
+```
+Zaglavlje (header) CSV datoteke mora biti prisutno. Ukoliko neki od redaka s podacima ne sadržava tri vrijednosti, aplikacija će ga ignorirati. Parametar `duration` ne može biti manji od jedne sekunde. CSV delimiter je zarez. Datoteku možete generirati naredbom `csv-out` ili na neki drugi način i [kopirati na server](spajanje.md#kopiranje-datoteka-kroz-sshscp). 
+
+Unesite naredbu `csv-in <ulazna-datoteka>  <izlazna-datoteka>`, npr:
+```
+RotatorShell:> csv-in ulaz.csv izlaz.csv
+Input data points: 36
+Working, please wait...
+Written output file: izlaz.csv
+```
+
+Generirana izlazna datoteka sadržavat će sljedeće vrijednosti:
+
+ - `azimuth` - azimut trenutne pozicije
+ - `elevation` - elevacija trenutne pozicije
+ - `begin_epoch_millis` - *Unix epoch* (ms) početka mirovanja rotatora na poziciji
+ - `end_epoch_millis` - *Unix epoch* (ms) kraja mirovanja rotatora na poziciji
+ - `begin_timestamp` - vremenska oznaka (string) početka mirovanja rotatora na poziciji
+ - `end_timestamp` - vremenska oznaka (string) kraja mirovanja rotatora na poziciji
+
+!!! warning "Azimut i elevacija u izlaznoj datoteci"
+    `azimuth` i `elevation` vrijednosti u izlaznoj datoteci mogu, i često hoće, donekle odstupati od očekivanih vrijednosti zadanih kroz ulaznu datoteku. Razlog je u tome što se dohvaćaju kroz očitanje s rotatora nakon što se isti smjesti u traženu poziciju. Primjerice, nakon slanja naredbe za pozicioniranje na (az: 5, el: 5), rotator nakon pomaka može prijaviti poziciju (az: 6, el: 7). Uzmite ovu činjenicu u obzir kod obrade podataka izlazne datoteke.<br>
+    Primjer izlazne datoteke za pomak azimuta 0 - 5 i elevacije 0 - 5 možete [preuzeti ovdje](assets/files/rotator_shell/izlaz.csv).
+
+!!! note "Nazivi datoteka"
+    Nazivi ulaznih i izlaznih datoteka mogu biti relativni u odnosu na direktorij u kojem ste pokrenuli naredbu `rs` (npr. `ulaz.csv`, `izlaz.csv`) ili apsolutni (npr. `/tmp/ulaz.csv`, `/home/korisnik/izlaz.csv`).
+
+    Trenutni direktorij na serveru možete prikazati pomoću naredbe `pwd` u Linux terminalu (ne u aplikaciji `rs`).
+
+    Ako `rs` ne može zapisati izlaznu datoteku, vjerojatno nemate dovoljna prava za pisanje u njenom odredišnom direktoriju. Pravo pisanja uvijek imate u svom korisničkom direktoriju (`/home/<korisnicko-ime>`) i direktoriju `/tmp`.
 
 ## Konfiguracija tracking softvera
 
