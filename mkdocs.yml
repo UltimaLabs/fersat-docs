@@ -24,5 +24,6 @@ nav:
 - Uvod: 'index.md'
 - Oprema, server: 'oprema_server.md'
 - Spajanje (OpenVPN, SSH): 'spajanje.md'
-- Rotator, scheduler/tracker: 'rotator_tracker.md'
+- Rotator: 'rotator.md'
+- Scheduler/tracker: 'tracker.md'
 

@@ -116,7 +116,7 @@ pscp fersat:/home/korisnik/output.csv c:\temp\podaci2.csv
 
 ### Linux
 
-!!! note "~/.ssh/config"
+!!! note ""
     U sljedećim primjerima pretpostavlja se da je u datoteku `~/.ssh/config` dodan zapis za `fersat` host.
 
 Kopiranje lokalne datoteke `/tmp/input.csv` u serverski direktorij `/home/korisnik/`:

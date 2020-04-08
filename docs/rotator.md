@@ -1,15 +1,12 @@
-# Rotator, scheduler/tracker
+# RotatorShell - ručno/batch upravljanje rotatorom
 
-## RotatorShell
-
-!!! warning ""
-    Prije rada s `RotatorShell` aplikacijom isključite tracking aplikaciju `sancho` zbog konflikta kod pristupa rotatoru:<br>
+!!! warning "Mogućnost konflikta - RotatorShell i Sancho"
+    Prije rada s `RotatorShell` aplikacijom isključite tracking servis `sancho` zbog konflikta kod pristupa rotatoru:<br>
     `sudo systemctl stop sancho`
 
+## Konfiguracija
 
-### Konfiguracija
-
-Konfiguracija aplikacije `RotatorShell` nalazi se u datoteci `/opt/ultima/rotator-shell/application.yml`:
+Aplikacija `RotatorShell` konfigurira se ažuriranjem datoteke `/opt/ultima/rotator-shell/application.yml`:
 ```
 logging:
   level:
@@ -43,9 +40,9 @@ Bitna sekcija je `rotatorshell`:
  - `setPosWaitNumSteps` - koliko puta rotator mora prijaviti istu poziciju prije no što proglasimo da je u mirovanju
  - `setPosWaitTimeout` - timeout kod čekanja rotatora 
 
-`setPosWait` konfiguracija važna je zbog protokola za komunikaciju s rotatorom. Naime, nakon slanja naredbe za setiranje pozicije, rotator će odmah vratiti povratni status je li naredba prihvaćena ili ne. Kako bi utvrdili da je rotator stao, njegova pozicija se periodički provjerava kroz petlju, s korakom od `setPosWaitStep` ms. Nakon što rotator nekoliko (`setPosWaitNumSteps`) puta prijavi istu poziciju, proglasit ćemo da je stao. Zbog neprecizne ADC konverzije vratit će različite (az, el) vrijednosti za istu poziciju pa aplikacija može zaključiti da se rotator još uvijek kreće i tako je moguća (iako ne i vjerojatna) beskonačna petlja. Iz ovog razloga se petlja terminira nakon `setPosWaitTimeout` sekundi. `setPosWaitTimeout` ne smije biti manji od maksimalnog vremena koje je rotatoru potrebno za normalno izvršenje najvećeg pomaka, recimo 0 - 359 stupnjeva po azimutu.
+`setPosWait` parametri važni su zbog protokola za komunikaciju s rotatorom. Naime, nakon slanja naredbe za setiranje pozicije, rotator će odmah vratiti povratni status je li naredba prihvaćena ili ne. Kako bi utvrdili da je rotator stao, njegova pozicija se periodički provjerava kroz petlju, s korakom od `setPosWaitStep` milisekundi. Nakon što rotator nekoliko (`setPosWaitNumSteps`) puta prijavi istu poziciju, proglasit ćemo da je stao. Zbog neprecizne ADC konverzije može vratiti različite (az, el) vrijednosti za istu poziciju pa aplikacija može zaključiti da se rotator još uvijek kreće i tako je moguća (iako ne i vjerojatna) beskonačna petlja. Iz ovog razloga se petlja terminira nakon `setPosWaitTimeout` sekundi. `setPosWaitTimeout` ne smije biti manji od maksimalnog vremena koje je rotatoru potrebno za normalno izvršenje najvećeg pomaka, recimo 0 - 359 stupnjeva po azimutu.
 
-### Osnovne naredbe
+## Osnovne naredbe
 
 Nakon spajanja na server pokrenite RotatorShell:
 ```
@@ -100,7 +97,7 @@ ALSO KNOWN AS
 
 Za izlaz iz aplikacije unesite naredbu `exit` ili `quit`.
 
-### Dohvat azimuta/elevacije
+## Dohvat azimuta/elevacije
 
 Unesite naredbu `g` ili `get`:
 ```
@@ -108,7 +105,7 @@ RotatorShell:> g
 Az: 328, El: 165
 ```
 
-### Postavljanje azimuta/elevacije
+## Postavljanje azimuta/elevacije
 
 Unesite naredbu `s <az> <el>` ili `set <az> <el>`:
 ```
@@ -116,7 +113,7 @@ RotatorShell:> set 320 150
 Ok. Az: 319, El: 150
 ```
 
-### Generiranje CSV batch datoteke
+## Generiranje CSV batch datoteke
 
 Unesite naredbu `csv-out <azimut-od>  <azimut-do>  <elevacija-od>  <elevacija-do>  <pauza>  <afr|efr>  <naziv-datoteke>`, npr:
 ```
@@ -132,7 +129,7 @@ RotatorShell:> csv-out 0 359 0 90 3 afr csv-out.csv
 Written output file: csv-out.csv
 ```
 
-### Učitavanje CSV batch datoteke
+## Učitavanje CSV batch datoteke
 
 Ulazna datoteka mora biti formatirana suklano [gornjem primjeru](assets/files/rotator_shell/csv-out.csv) generiranom pomoću naredbe `csv-out`:
 ```
@@ -174,7 +171,3 @@ Generirana izlazna datoteka sadržavat će sljedeće vrijednosti:
     Trenutni direktorij na serveru možete prikazati pomoću naredbe `pwd` u Linux terminalu (ne u aplikaciji `rs`).
 
     Ako `rs` ne može zapisati izlaznu datoteku, vjerojatno nemate dovoljna prava za pisanje u njenom odredišnom direktoriju. Pravo pisanja uvijek imate u svom korisničkom direktoriju (`/home/<korisnicko-ime>`) i direktoriju `/tmp`.
-
-## Konfiguracija tracking softvera
-
-TODO
