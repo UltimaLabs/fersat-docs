@@ -3,6 +3,9 @@
 !!! warning "Mogućnost konflikta - RotatorShell i Sancho"
     Prije rada s `RotatorShell` aplikacijom isključite tracking servis `sancho` zbog konflikta kod pristupa rotatoru:<br>
     `sudo systemctl stop sancho`
+    <br><br>
+    Kasnije ga ne zaboravite ponovno pokrenuti:<br>
+    `sudo systemctl start sancho`
 
 ## Konfiguracija
 
