@@ -1,6 +1,6 @@
 # FERSAT dokumentacija
 
-Projekt FERSAT uključuje izradu, lansiranje i korištenje jednog nanosatelita u orbiti na visini između 500 i 650 kilometara u razdoblju od tri godine. Za više detalja molimo posjetite [službene stranice projekta FERSAT](https://www.fer.unizg.hr/zrk/FERSAT).
+Projekt FERSAT uključuje izradu, lansiranje i korištenje jednog nanosatelita u orbiti na visini između 500 i 650 kilometara u razdoblju od tri godine. Za više detalja molimo posjetite [službene stranice projekta FERSAT](https://www.fer.unizg.hr/zkist/FERSAT).
 
 Ovdje možete pronaći dokumentaciju softverskih komponenata zemaljske stanice:
 
