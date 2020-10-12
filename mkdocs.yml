@@ -26,4 +26,5 @@ nav:
 - Spajanje (OpenVPN, SSH): 'spajanje.md'
 - Rotator: 'rotator.md'
 - Scheduler/tracker: 'tracker.md'
+- AX.25/APRS: 'ax25.md'
 

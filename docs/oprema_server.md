@@ -12,6 +12,7 @@
  - VPN: [OpenVPN](https://community.openvpn.net/openvpn)
  - Web server: [nginx](https://www.nginx.com/)
  - Softverski paket za upravljanje rotatorom i primopredajnikom [Hamlib](https://hamlib.github.io/); koristi se [rotctld](https://manned.org/rotctld/15b1f5b8) komponenta za komunikaciju s rotatorom.
+ - Softverski paket za prijem APRS podataka [Dire Wolf](https://github.com/wb2osz/direwolf).
  - [SatTrackAPI](https://github.com/UltimaLabs/sattrackapi) - REST servis smješten na eksternom serveru, koristi se za dohvat scheduling/tracking podataka.
  - [Sancho](https://github.com/UltimaLabs/sancho/) - servis za scheduling i tracking satelita. Podatke dohvaća kroz SatTrackAPI. S rotatorom komunicira kroz `rotctld`.
  - [RotatorShell](https://github.com/UltimaLabs/rotatorshell) - shell aplikacija za ručno ili batch upravljanje rotatorom.

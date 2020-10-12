@@ -13,6 +13,7 @@ Ovdje možete pronaći dokumentaciju softverskih komponenata zemaljske stanice:
  2. [Spajanje na server (OpenVPN, SSH)](spajanje.md)
  3. [Rotator](rotator.md)
  4. [Scheduler/tracker](tracker.md)
+ 5. [AX.25/APRS](ax25.md)
 
 ## Ažuriranje dokumentacije - TL;DR
 
