@@ -1,4 +1,4 @@
-# Spajanje na server - OpenVPN, SSH
+# Spajanje na server - OpenVPN, SSH, PostgreSQL
 
 ## OpenVPN
 
@@ -138,3 +138,12 @@ Kopiranje serverske datoteke `/home/korisnik/output.csv` u lokalni direktorij `/
 ```
 scp fersat:/home/korisnik/output.csv /tmp/podaci2.csv
 ```
+
+## PostgreSQL
+
+Na serveru je instalirana relacijska baza podataka [PostgreSQL, verzija 13](https://www.postgresql.org/docs/13/index.html).
+
+Na bazu se možete spojiti kroz TCP port 5432 na adresama 127.0.0.1 (localhost) i 10.8.19.1 (VPN). Lokalno je moguće spajanje kroz UNIX socket koji se nalazi u direktoriju `/var/run/postgresql/`. Lozinku za spajanje pronaći ćete u datoteci `/opt/ultima/postgresql.txt` (izvršite naredbu `cat /opt/ultima/postgresql.txt` nakon spajanja kroz SSH).
+
+ - Naziv baze: `fersat`
+ - Korisničko ime: `fersat`

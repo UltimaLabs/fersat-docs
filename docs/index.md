@@ -10,7 +10,7 @@ Ovdje možete pronaći dokumentaciju softverskih komponenata zemaljske stanice:
 ## Sadržaj
 
  1. [Oprema, server](oprema_server.md)
- 2. [Spajanje na server (OpenVPN, SSH)](spajanje.md)
+ 2. [Spajanje na server (OpenVPN, SSH, PostgreSQL)](spajanje.md)
  3. [Rotator](rotator.md)
  4. [Scheduler/tracker](tracker.md)
  5. [AX.25/APRS](ax25.md)

@@ -23,7 +23,7 @@ markdown_extensions:
 nav:
 - Uvod: 'index.md'
 - Oprema, server: 'oprema_server.md'
-- Spajanje (OpenVPN, SSH): 'spajanje.md'
+- Spajanje (OpenVPN, SSH, pgsql): 'spajanje.md'
 - Rotator: 'rotator.md'
 - Scheduler/tracker: 'tracker.md'
 - AX.25/APRS: 'ax25.md'

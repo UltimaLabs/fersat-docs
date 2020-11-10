@@ -11,6 +11,7 @@
  - Operativni sustav: [CentOS 7 GNU/Linux](https://www.centos.org/)
  - VPN: [OpenVPN](https://community.openvpn.net/openvpn)
  - Web server: [nginx](https://www.nginx.com/)
+ - Baza podataka: [PostgreSQL 13](https://www.postgresql.org/docs/13/index.html)
  - Softverski paket za upravljanje rotatorom i primopredajnikom [Hamlib](https://hamlib.github.io/); koristi se [rotctld](https://manned.org/rotctld/15b1f5b8) komponenta za komunikaciju s rotatorom.
  - Softverski paket za prijem APRS podataka [Dire Wolf](https://github.com/wb2osz/direwolf).
  - [SatTrackAPI](https://github.com/UltimaLabs/sattrackapi) - REST servis smješten na eksternom serveru, koristi se za dohvat scheduling/tracking podataka.
