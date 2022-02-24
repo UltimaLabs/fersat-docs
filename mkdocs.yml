@@ -3,7 +3,6 @@ repo_url: https://github.com/UltimaLabs/fersat-docs/
 site_author: 'FERSAT projekt'
 copyright: 'Copyright &copy; 2020 FERSAT projekt'
 use_directory_urls: false
-strict: True
 
 theme:
   name: 'material'
@@ -27,4 +26,5 @@ nav:
 - Rotator: 'rotator.md'
 - Scheduler/tracker: 'tracker.md'
 - AX.25/APRS: 'ax25.md'
+- Icarus: 'icarus.md'
 
